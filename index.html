@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title></head>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+            <h1>💰 Smart Expense Tracker</h1>
+            <p>Take control of your finances with intelligent tracking</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalExpenses">$0</div>
+                    <div class="stat-label">Total Expenses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="monthlyAvg">$0</div>
+                    <div class="stat-label">Monthly Average</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="expenseCount">0</div>
+                    <div class="stat-label">Total Transactions</div>
+                </div>
+            </div>
+            
+            <!-- Add Expense Form -->
+            <div class="form-section">
+                <h2 class="form-title">➕ Add New Expense</h2>
+                <div class="form-group">
+                    <input type="text" id="expenseTitle" class="input-field" placeholder="Expense description">
+                    <input type="number" id="expenseAmount" class="input-field" placeholder="Amount" step="0.01">
+                    <label for="expenseCategory" class="visually-hidden">Expense Category</label>
+                    <select id="expenseCategory" class="select-field">
+                        <option value="">Select Category</option>
+                        <option value="Food">🍕 Food & Dining</option>
+                        <option value="Transportation">🚗 Transportation</option>
+                        <option value="Entertainment">🎬 Entertainment</option>
+                        <option value="Shopping">🛍️ Shopping</option>
+                        <option value="Bills">📄 Bills & Utilities</option>
+                        <option value="Healthcare">🏥 Healthcare</option>
+                        <option value="Education">📚 Education</option>
+                        <option value="Other">🔧 Other</option>
+                    </select>
+                    <label for="expenseDate" class="visually-hidden">Expense Date</label>
+                    <input type="date" id="expenseDate" class="input-field" placeholder="Date" title="Expense Date">
+                </div>
+                <button onclick="addExpense()" class="btn">Add Expense</button>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="filterCategory" class="visually-hidden">Filter by Category</label>
+                    <select id="filterCategory" class="select-field" onchange="filterExpenses()">
+                        <option value="">All Categories</option>
+                        <option value="Food">Food & Dining</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills & Utilities</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button onclick="clearAll()" class="btn btn-clear-all">Clear All</button>
+                </div>
+            </div>
+
+            <!-- Category Chart -->
+            <div class="chart-container">
+                <h3 class="chart-title">📊 Spending by Category</h3>
+                <div id="categoryChart"></div>
+            </div>
+
+            <!-- Expenses List -->
+            <div class="expenses-list">
+                <div class="list-header">
+                    <h3 class="list-title">📋 Recent Expenses</h3>
+                </div>
+                <div id="expensesList">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📝</div>
+                        <p>No expenses yet. Add your first expense above!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+    </html>
